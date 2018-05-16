@@ -1,1 +1,45 @@
+@import '../../utilities/_palette.sass'
+@import '../../utilities/_timers.sass'
+@import '../../utilities/_animations.sass'
+
 .Product
+  .card-wrapper
+    height: 100%
+    box-shadow: 0 2px 4px 0 $shadow-dark
+    border-radius: 4px
+    text-align: center
+    cursor: pointer
+    display: flex
+    flex-direction: column
+    transition: $short-frame
+    &:hover
+      box-shadow: 0 10px 15px 0 $shadow-light
+      transform: scale(1.02)
+    .tab
+      flex-grow: 0
+      color: $balloon-red
+      font-weight: 700
+      font-size: 1.1em
+      min-height: 30px
+      padding: 20px 10px 5px 10px
+    .info
+      padding-top: 20px
+      flex-grow: 1
+      transition: $short-frame
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      img
+        align-self: center
+        // margin-top: 30px
+        // max-width: 200px
+        max-height: 150px
+      h1
+        font-weight: 700
+        // color: $setting
+        font-size: 1.2em
+      h2
+        // flex: 1
+        font-weight: 300
+        color: $gray
+        font-size: 1em

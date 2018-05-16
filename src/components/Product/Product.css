@@ -1,0 +1,54 @@
+@keyframes appear-flip {
+  0% {
+    opacity: 0;
+    transform: rotateY(-90deg) translateY(30px);
+    background-color: #e24d86; }
+  50% {
+    opacity: .2; }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) translateY(0px);
+    background-color: #f9fafc; } }
+
+.Product .card-wrapper {
+  height: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s; }
+
+.Product .card-wrapper:hover {
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.12);
+  transform: scale(1.02); }
+
+.Product .card-wrapper .tab {
+  flex-grow: 0;
+  color: #e24d86;
+  font-weight: 700;
+  font-size: 1.1em;
+  min-height: 30px;
+  padding: 20px 10px 5px 10px; }
+
+.Product .card-wrapper .info {
+  padding-top: 20px;
+  flex-grow: 1;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+
+.Product .card-wrapper .info img {
+  align-self: center;
+  max-height: 150px; }
+
+.Product .card-wrapper .info h1 {
+  font-weight: 700;
+  font-size: 1.2em; }
+
+.Product .card-wrapper .info h2 {
+  font-weight: 300;
+  color: #bababa;
+  font-size: 1em; }
