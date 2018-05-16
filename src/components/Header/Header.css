@@ -1,0 +1,9 @@
+.Header {
+  text-align: center; }
+
+.Header h1 {
+  font-weight: 700;
+  color: #1f2831; }
+
+.Header h1 .balloon-red {
+  color: #e24d86; }
