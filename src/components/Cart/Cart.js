@@ -60,7 +60,9 @@ class Cart extends Component {
     );
     return (
       <div className="Cart">
-        {items}
+        {
+          (this.state.items.length !== 0) ? items : <div className="message">Cart is empty.</div>
+        }
       </div>
     );
   }
