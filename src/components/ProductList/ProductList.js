@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ProductList.css'
 import Product from '../Product/Product';
+import ProductModal from '../ProductModal/ProductModal'
 
 class ProductList extends Component {
   constructor(props) {
@@ -51,12 +52,27 @@ class ProductList extends Component {
       ]
     }
 
+    this.closeModal = this.closeModal.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+    
+  closeModal() {
+    this.setState({
+      selectedProduct: null
+    });
+  }
+
+  handleClick(selectedProductIndex) {
+    this.setState({
+      selectedProduct: selectedProductIndex
+    });
   }
 
   render() {
-    const products = this.state.products.map(product => 
+    const products = this.state.products.map((product, index) => 
       <li key={product.id}>
         <Product
+          index={index}
           handleClick={this.handleClick}
           name={product.name}
           imageUrl={product.imageUrl}
@@ -70,6 +86,12 @@ class ProductList extends Component {
           (this.state.products.length !== 0) ?
           products : <span>Shop is closed!</span>
         }
+        <ProductModal 
+          modalOpened={this.state.selectedProduct!==null}
+          closeModal={this.closeModal}
+          products={this.state.products}
+          selectedProduct={1}
+        />
       </div>
     );
   }

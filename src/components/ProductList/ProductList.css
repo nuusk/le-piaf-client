@@ -10,6 +10,26 @@
     transform: rotateY(0deg) translateY(0px);
     background-color: #f9fafc; } }
 
+@keyframes appear-flip-modal {
+  0% {
+    opacity: 0;
+    transform: rotateY(-90deg) translateY(60px);
+    background-color: #e24d86; }
+  50% {
+    opacity: .2; }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) translateY(0px);
+    background-color: #f9fafc; } }
+
+@keyframes hide-flip-modal {
+  0% {
+    opacity: 1;
+    transform: rotateY(0deg) translateY(0px); }
+  100% {
+    opacity: 0;
+    transform: rotateY(-90deg) translateY(60px) scale(0.6); } }
+
 .ProductList {
   perspective: 3000px;
   max-width: 80%;

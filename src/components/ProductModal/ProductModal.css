@@ -1,0 +1,91 @@
+@keyframes appear-flip {
+  0% {
+    opacity: 0;
+    transform: rotateY(-90deg) translateY(30px);
+    background-color: #e24d86; }
+  50% {
+    opacity: .2; }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) translateY(0px);
+    background-color: #f9fafc; } }
+
+@keyframes appear-flip-modal {
+  0% {
+    opacity: 0;
+    transform: rotateY(-90deg) translateY(60px);
+    background-color: #e24d86; }
+  50% {
+    opacity: .2; }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) translateY(0px);
+    background-color: #f9fafc; } }
+
+@keyframes hide-flip-modal {
+  0% {
+    opacity: 1;
+    transform: rotateY(0deg) translateY(0px); }
+  100% {
+    opacity: 0;
+    transform: rotateY(-90deg) translateY(60px) scale(0.6); } }
+
+.ReactModalPortal > div {
+  opacity: 0; }
+
+.ReactModalPortal .ReactModal__Overlay {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.3s ease-in-out;
+  perspective: 2000px; }
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.6) !important; }
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+  opacity: 0; }
+
+.ReactModalPortal .ReactModal__Overlay--before-close .ProductModal {
+  animation: hide-flip-modal 0.3s ease-in-out forwards; }
+
+.ProductModal {
+  perspective: 1000px;
+  background-color: #f9fafc;
+  border-radius: 6px;
+  max-width: 600px;
+  padding: 10px 50px;
+  display: flex;
+  flex-direction: column;
+  line-height: 22px;
+  opacity: 0;
+  animation: appear-flip-modal 0.5s ease-in-out forwards; }
+
+@media screen and (max-width: 700px) {
+  .ProductModal {
+    box-sizing: border-box;
+    line-height: 15px;
+    padding: 5px 20px; } }
+
+.ProductModal:focus {
+  outline: none; }
+
+.ProductModal strong {
+  color: #1f2831;
+  font-weight: 700; }
+
+.ProductModal .product-details {
+  display: flex;
+  color: #1f2831;
+  margin: 30px 0; }
+
+.ProductModal .product-details .product-image {
+  align-self: center;
+  max-height: 300px; }
+
+.ProductModal .product-details .product-info {
+  padding-left: 40px; }
+
+.ProductModal .product-details .product-info .product-name {
+  font-size: 1.5em; }

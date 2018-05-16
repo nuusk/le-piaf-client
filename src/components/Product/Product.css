@@ -10,6 +10,26 @@
     transform: rotateY(0deg) translateY(0px);
     background-color: #f9fafc; } }
 
+@keyframes appear-flip-modal {
+  0% {
+    opacity: 0;
+    transform: rotateY(-90deg) translateY(60px);
+    background-color: #e24d86; }
+  50% {
+    opacity: .2; }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) translateY(0px);
+    background-color: #f9fafc; } }
+
+@keyframes hide-flip-modal {
+  0% {
+    opacity: 1;
+    transform: rotateY(0deg) translateY(0px); }
+  100% {
+    opacity: 0;
+    transform: rotateY(-90deg) translateY(60px) scale(0.6); } }
+
 .Product .card-wrapper {
   height: 100%;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
