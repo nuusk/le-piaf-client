@@ -4,7 +4,7 @@ class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [
+      products: [
         {
           id: 1,
           name: 'bluza',
@@ -26,42 +26,42 @@ class Cart extends Component {
     };
   }
 
-  addItem(e, newItem) {
+  addproduct(e, newproduct) {
     this.setState(prevState => ({
-      items: [...prevState.items, newItem],
+      products: [...prevState.products, newproduct],
       totalCount: prevState.totalCount + 1
     }));
   }
 
-  removeItem(e, itemId) {
-    let removedItemIndex;;
-    this.state.items.some((item, index)=>{
-      if (item.id === itemId) {
-        removedItemIndex = index;
+  removeproduct(e, productId) {
+    let removedproductIndex;;
+    this.state.products.some((product, index)=>{
+      if (product.id === productId) {
+        removedproductIndex = index;
         return true;
       }
       return false; //?????
     });
-    if (typeof itemId !== 'undefined') {
+    if (typeof productId !== 'undefined') {
       this.setState(prevState => {
-        let newItemList = prevState.items.slice();
-        newItemList.splice(removedItemIndex, 1);
-        return {items: newItemList};
+        let newproductList = prevState.products.slice();
+        newproductList.splice(removedproductIndex, 1);
+        return {products: newproductList};
       });
     }
   }
 
   render() {
-    const items = this.state.items.map(item => 
-      <li key={item.id}>
-        <div className="item-name">{item.name}</div>
-        <div className="item-price">{item.price}</div>
+    const products = this.state.products.map(product => 
+      <li key={product.id}>
+        <div className="product-name">{product.name}</div>
+        <div className="product-price">{product.price}</div>
       </li>
     );
     return (
       <div className="Cart">
         {
-          (this.state.items.length !== 0) ? items : <div className="message">Cart is empty.</div>
+          (this.state.products.length !== 0) ? products : <div className="message">Cart is empty.</div>
         }
       </div>
     );
