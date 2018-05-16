@@ -49,7 +49,9 @@ class ProductList extends Component {
             EUR: 12.90
           }
         }
-      ]
+      ],
+      selectedProduct: null,
+      modalOpened: false
     }
 
     this.closeModal = this.closeModal.bind(this);
@@ -58,12 +60,18 @@ class ProductList extends Component {
     
   closeModal() {
     this.setState({
-      selectedProduct: null
+      modalOpened: false
     });
+    setTimeout(function(){
+      this.setState({
+        selectedProduct: null
+      });
+    }.bind(this), 300)
   }
 
   handleClick(selectedProductIndex) {
     this.setState({
+      modalOpened: true,
       selectedProduct: selectedProductIndex
     });
   }
@@ -72,6 +80,7 @@ class ProductList extends Component {
     const products = this.state.products.map((product, index) => 
       <li key={product.id}>
         <Product
+          ref
           index={index}
           handleClick={this.handleClick}
           name={product.name}
@@ -87,10 +96,10 @@ class ProductList extends Component {
           products : <span>Shop is closed!</span>
         }
         <ProductModal 
-          modalOpened={this.state.selectedProduct!==null}
+          modalOpened={this.state.modalOpened}
           closeModal={this.closeModal}
           products={this.state.products}
-          selectedProduct={1}
+          selectedProduct={this.state.products[this.state.selectedProduct]}
         />
       </div>
     );

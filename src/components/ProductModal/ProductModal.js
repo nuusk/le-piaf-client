@@ -15,7 +15,7 @@ class ProductModal extends Component {
   
 
   render() {
-    let selectedProduct = this.props.products[this.props.selectedProduct];
+    let selectedProduct = this.props.selectedProduct;
     return (
       <Modal
         isOpen={this.props.modalOpened}
@@ -24,12 +24,17 @@ class ProductModal extends Component {
         closeTimeoutMS={this.closeTimeout}
         className="ProductModal"
       >
+      {
+        selectedProduct?
         <div className="product-details">
           <img className="product-image" alt='' src={selectedProduct.imageUrl} />
           <div className="product-info">
             <h3 className="product-name">{selectedProduct.name}</h3>
           </div>
         </div>
+        :null
+      }
+        
         
       </Modal>
     );
