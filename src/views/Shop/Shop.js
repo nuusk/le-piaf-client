@@ -12,8 +12,8 @@ class Shop extends Component {
     this.addToCart=this.addToCart.bind(this);
   }
 
-  addToCart(product) {
-    this.cartRef.current.addProduct(product);
+  addToCart(product, size) {
+    this.cartRef.current.addProduct(product, size);
     // console.log(product);
   }
 

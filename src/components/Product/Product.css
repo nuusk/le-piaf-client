@@ -8,7 +8,7 @@
   100% {
     opacity: 1;
     transform: rotateY(0deg) translateY(0px);
-    background-color: #f9fafc; } }
+    background-color: rgba(0, 0, 0, 0); } }
 
 @keyframes appear-flip-modal {
   0% {
@@ -38,7 +38,8 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  transition: 0.3s; }
+  transition: 0.3s;
+  background-color: #f9fafc; }
 
 .Product .card-wrapper:hover {
   box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.12);
@@ -72,3 +73,25 @@
   font-weight: 300;
   color: #bababa;
   font-size: 1em; }
+
+.Product .product-button {
+  height: 30px;
+  padding: 0 10px;
+  margin-top: 10px;
+  color: #f9fafc;
+  background-color: #e24d86;
+  font-weight: 400;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 0 solid #fc74a8;
+  outline: none; }
+
+.Product .product-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0 0 #fc74a8; }
+
+.Product .product-button:active {
+  transform: translate(1px, 1px);
+  box-shadow: -1px -1px 0 0 #545454; }

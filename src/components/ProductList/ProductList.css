@@ -8,7 +8,7 @@
   100% {
     opacity: 1;
     transform: rotateY(0deg) translateY(0px);
-    background-color: #f9fafc; } }
+    background-color: rgba(0, 0, 0, 0); } }
 
 @keyframes appear-flip-modal {
   0% {
@@ -37,7 +37,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-column-gap: 40px;
-  grid-row-gap: 40px; }
+  grid-row-gap: 40px;
+  background-color: rgba(0, 0, 0, 0); }
 
 @media screen and (max-width: 1800px) {
   .ProductList {

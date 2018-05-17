@@ -92,6 +92,7 @@ class Cart extends Component {
         <div className="product-name">{product.name}</div>
         <div className="product-price">{this.getPrice(product)}</div>
         <div className="product-amount">{product.quantity} </div>
+        <div className="product-size">{product.size}</div>
       </li>
     );
     return (

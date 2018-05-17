@@ -48,15 +48,13 @@ class ProductList extends Component {
     });
   }
 
-  handleAddToCart(productIndex) {
-    this.props.addToCart(this.state.products[productIndex]);
+  handleAddToCart(productIndex, productSize) {
+    this.props.addToCart(this.state.products[productIndex], productSize);
   }
 
   render() {
     const products = this.state.products.map((product, index) => 
-      <li key={product._id}>
         <Product
-          ref
           index={index}
           handleClick={this.handleClick}
           name={product.name}
@@ -64,7 +62,6 @@ class ProductList extends Component {
           price={product.prices['PLN']}
           addToCart={this.handleAddToCart}
         />
-      </li>
     );
     return (
       <div className="ProductList">

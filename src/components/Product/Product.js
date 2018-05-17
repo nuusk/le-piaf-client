@@ -5,7 +5,8 @@ class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageLoaded: false
+      imageLoaded: false,
+      selectedSize: 'L'
     }
 
     this.handleClick=this.handleClick.bind(this);
@@ -19,7 +20,7 @@ class Product extends Component {
   }
 
   handleAddToCart() {
-    this.props.addToCart(this.props.index);
+    this.props.addToCart(this.props.index, this.state.selectedSize);
   }
 
   render() {
@@ -32,7 +33,9 @@ class Product extends Component {
             <h2>{this.props.price}</h2>
           </div>
         </div>
-        <button onClick={this.handleAddToCart}> add to cart </button>
+        <span>
+        <button className="product-button" onClick={this.handleAddToCart}>ADD TO CART</button>
+        </span>
       </div>
     );
   }

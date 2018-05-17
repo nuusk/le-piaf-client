@@ -12,6 +12,7 @@
     display: flex
     flex-direction: column
     transition: $short-frame
+    background-color: $white
     &:hover
       box-shadow: 0 10px 15px 0 $shadow-light
       transform: scale(1.02)
@@ -43,3 +44,22 @@
         font-weight: 300
         color: $gray
         font-size: 1em
+  .product-button
+    height: 30px
+    padding: 0 10px
+    margin-top: 10px
+    color: $white
+    background-color: $balloon-red
+    font-weight: 400
+    border: none
+    border-radius: 2px
+    cursor: pointer
+    transition: $short-frame
+    border: 0 solid $balloon-red-light
+    outline: none
+    &:hover
+      transform: translate(-2px, -2px)
+      box-shadow: 2px 2px 0 0 $balloon-red-light
+    &:active
+      transform: translate(1px, 1px)
+      box-shadow: -1px -1px 0 0 $gray-dark
