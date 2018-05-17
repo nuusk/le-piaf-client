@@ -15,6 +15,7 @@ class ProductList extends Component {
 
     this.closeModal = this.closeModal.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleAddToCart = this.handleAddToCart.bind(this);
   }
     
   componentDidMount() {
@@ -25,7 +26,7 @@ class ProductList extends Component {
     }).then(blob => blob.json())
       .then(data => {
         this.setState({products: data})
-        console.log(data);
+        // console.log(data[0]._id);
       });
   }
 
@@ -47,9 +48,13 @@ class ProductList extends Component {
     });
   }
 
+  handleAddToCart(productIndex) {
+    this.props.addToCart(this.state.products[productIndex]);
+  }
+
   render() {
     const products = this.state.products.map((product, index) => 
-      <li key={product.id}>
+      <li key={product._id}>
         <Product
           ref
           index={index}
@@ -57,7 +62,7 @@ class ProductList extends Component {
           name={product.name}
           imageUrl={product.imageUrl}
           price={product.prices['PLN']}
-          addToCart={this.props.addToCart}
+          addToCart={this.handleAddToCart}
         />
       </li>
     );

@@ -32,7 +32,7 @@ class Cart extends Component {
       totalCount: prevState.totalCount + 1
     }));
     // console.log(e);
-    // console.log(newProduct);
+    console.log(newProduct);
   }
 
   removeProduct(e, productId) {
@@ -55,7 +55,7 @@ class Cart extends Component {
 
   render() {
     const products = this.state.products.map(product => 
-      <li key={product.id}>
+      <li key={product._id}>
         <div className="product-name">{product.name}</div>
         <div className="product-price">{product.price}</div>
       </li>

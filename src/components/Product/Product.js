@@ -19,7 +19,7 @@ class Product extends Component {
   }
 
   handleAddToCart() {
-    this.props.addToCart(this.props);
+    this.props.addToCart(this.props.index);
   }
 
   render() {
