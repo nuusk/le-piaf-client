@@ -12,6 +12,8 @@
   grid-column-gap: 40px
   grid-row-gap: 40px
   background-color: rgba(0,0,0,0)
+  padding-top: 40px
+  border-top: 2px solid $gray
   
   @media screen and (max-width: 1800px)
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr
@@ -34,7 +36,7 @@
           name: appear-flip
           duration: $normal-frame
           delay: $short-frame * ( 0.5 * $i - 1 )
-          timing-function: ease-in-out
+          timing-function: $flow
           fill-mode: forwards
 
         .product-button
@@ -42,5 +44,5 @@
             name: appear-fade
             duration: $normal-frame
             delay: $normal-frame + $short-frame * ( 0.5 * $i - 1 )
-            timing-function: ease-in-out
+            timing-function: $flow
             fill-mode: forwards

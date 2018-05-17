@@ -6,7 +6,8 @@ class Cart extends Component {
     super(props);
     this.state = {
       products: [],
-      totalCount: 0
+      totalCount: 0,
+      cartOpened: false
     };
 
     this.getPrice=this.getPrice.bind(this);
@@ -78,11 +79,17 @@ class Cart extends Component {
     );
     return (
       <div className="Cart">
-        {
-          (this.state.products.length !== 0) ?
-          products
-          :<div className="message">Cart is empty.</div>
-        }
+      <div onClick={()=>{this.setState({cartOpened: !this.state.cartOpened})}} className="toggle-cart">
+        <span className="toggle-icon" />
+        <span className="toggle-text">{this.state.cartOpened ? `hide cart`:`show cart`}</span>
+      </div>
+          <div className={`cart-products ${this.state.cartOpened ? 'opened':'closed'}` } >
+            {
+              (this.state.products.length !== 0) ?
+              products
+              :<div className="message">Cart is empty...</div>
+            }
+          </div>
       </div>
     );
   }

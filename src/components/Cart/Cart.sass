@@ -4,31 +4,86 @@
 @import '../../utilities/_sizes.sass'
 
 .Cart
-  perspective: 3000px
   width: 80%
-  margin: 0 auto 60px auto
-  
-  // display: grid
-  // grid-template-columns: repeat(8, 1fr)
-  // grid-column-gap: 40px
-  // grid-row-gap: 40px
-  display: flex
-  flex-wrap: wrap
-  justify-content: flex-start
-
+  margin: 0 auto
   @media screen and (max-width: 1800px)
     max-width: 90%
   @media screen and (max-width: 700px)
     max-width: 95%
-  .cart-product
-    border: 2px solid red
-    flex: 1 1
-    .product-name
-      font-weight: 700
-      color: $balloon-red
-    .product-price
-      font-weight: 300
-      color: $gray-dark
+  border-radius: 1px
+  .cart-products
+    perspective: 3000px
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-start
+    &.opened
+      animation: appear-slide $long-frame $flow forwards
+    &.closed
+      animation: hide-slide $long-frame $flow forwards
 
-    img
-      max-height: 80px
+    .message
+      display: flex
+      flex-direction: column
+      justify-content: space-around
+      height: 130px
+      margin: 0 auto
+      font-size: 1.2em
+      color: $gray-dark
+      font-weight: 700
+
+  
+    .cart-product
+      flex: 1 1
+      .product-name
+        font-weight: 700
+        color: $balloon-red
+      .product-price
+        font-weight: 300
+        color: $gray-dark
+
+      img
+        max-height: 80px
+  
+  .toggle-cart
+    position: relative
+    z-index: 1
+    width: 100px
+    border: none
+    outline: none
+    margin: 5px 0 20px 0
+    border-radius: 10px
+    font-size: 1.1em
+    color: $gray-dark
+    cursor: pointer
+    .toggle-icon
+      transition: .3s
+      display: inline-block
+      width: 10px
+      height: 2px
+      margin: 5px
+      background-color: #bbb
+      &:before
+        transition: .3s
+        content: ""
+        position: absolute
+        background-color: #bbb
+        display: block
+        width: 15px
+        height: 2px
+        margin: 5px
+        transform: translate(-50%, -10px)
+      &:after 
+        transition: .3s
+        content: ""
+        position: absolute
+        background-color: #bbb
+        display: block
+        width: 5px
+        height: 2px
+        margin: 5px
+        transform: translate(-50%, 0)
+    &:hover
+      color: $black
+      .toggle-icon:before, .toggle-icon, .toggle-icon:after
+        background-color: $balloon-red      
+    .toggle-text

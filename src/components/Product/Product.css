@@ -36,6 +36,30 @@
   100% {
     opacity: 1; } }
 
+@keyframes appear-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+    margin-top: -100px; }
+  40% {
+    opacity: 0; }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+    transform: translateY(0); } }
+
+@keyframes hide-slide {
+  0% {
+    opacity: 1;
+    margin-top: 0;
+    transform: translateY(0); }
+  40% {
+    opacity: 0; }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px);
+    margin-top: -100px; } }
+
 .Product {
   text-align: center; }
 
