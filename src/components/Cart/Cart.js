@@ -25,7 +25,7 @@ class Cart extends Component {
     })
     if (alreadyExists) {
       console.log(alreadyExistingIndex);
-      let newState = this.state.products;
+      let newState = this.state.products.slice();
       newState[alreadyExistingIndex].quantity++;
       this.setState({ products: newState });
     } else {
@@ -38,19 +38,15 @@ class Cart extends Component {
   }
 
   removeProduct(productId) {
-    let removedProductIndex;;
-    this.state.products.some((product, index)=>{
-      if (product._id === productId) {
-        removedProductIndex = index;
-        return true;
-      }
-      return false;
-    });
     if (typeof productId !== 'undefined') {
       this.setState(prevState => {
-        let newproductList = prevState.products.slice();
-        newproductList.splice(removedProductIndex, 1);
-        return {products: newproductList};
+        let newProductList = prevState.products.slice();
+        if (newProductList[productId].quantity-- > 1) {
+          return {products: newProductList};
+        } else {
+          newProductList.splice(productId, 1);
+          return {products: newProductList};
+        };
       });
     }
   }
@@ -74,12 +70,12 @@ class Cart extends Component {
         <div className="product-name">{product.name}</div>
         <div className="product-price">{this.getPrice(product)}</div>
         <div className="product-amount">
-          <button>
-            <span className="amount-minus" onClick={()=>{this.addProduct(product)}} />
+          <button onClick={()=>{this.removeProduct(index)}}>
+            <span className="amount-minus" />
           </button>
           <span>{product.quantity}</span>
-          <button>
-            <span className="amount-plus" onClick={()=>{this.removeProduct(index)}} />
+          <button onClick={()=>{this.addProduct(product)}}>
+            <span className="amount-plus" />
           </button>
         </div>
         <div className="product-size">{product.size}</div>
