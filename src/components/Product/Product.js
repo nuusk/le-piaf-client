@@ -9,12 +9,17 @@ class Product extends Component {
     }
 
     this.handleClick=this.handleClick.bind(this);
+    this.handleAddToCart=this.handleAddToCart.bind(this)
   }
 
 
   handleClick() {
     // pass the index of the Product in the global array (of Products)
     this.props.handleClick(this.props.index);
+  }
+
+  handleAddToCart() {
+    this.props.addToCart(this.props);
   }
 
   render() {
@@ -26,6 +31,7 @@ class Product extends Component {
             <img src={this.props.imageUrl} alt='' onLoad={this.appear}/>
             <h2>{this.props.price}</h2>
           </div>
+          <button onClick={this.handleAddToCart}> add to cart </button>
         </div>
       </div>
     );

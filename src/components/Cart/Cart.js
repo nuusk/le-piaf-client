@@ -26,18 +26,20 @@ class Cart extends Component {
     };
   }
 
-  addproduct(e, newproduct) {
+  addProduct(newProduct) {
     this.setState(prevState => ({
-      products: [...prevState.products, newproduct],
+      products: [...prevState.products, newProduct],
       totalCount: prevState.totalCount + 1
     }));
+    // console.log(e);
+    // console.log(newProduct);
   }
 
-  removeproduct(e, productId) {
-    let removedproductIndex;;
+  removeProduct(e, productId) {
+    let removedProductIndex;;
     this.state.products.some((product, index)=>{
-      if (product.id === productId) {
-        removedproductIndex = index;
+      if (product._id === productId) {
+        removedProductIndex = index;
         return true;
       }
       return false; //?????
@@ -45,7 +47,7 @@ class Cart extends Component {
     if (typeof productId !== 'undefined') {
       this.setState(prevState => {
         let newproductList = prevState.products.slice();
-        newproductList.splice(removedproductIndex, 1);
+        newproductList.splice(removedProductIndex, 1);
         return {products: newproductList};
       });
     }
@@ -61,7 +63,9 @@ class Cart extends Component {
     return (
       <div className="Cart">
         {
-          (this.state.products.length !== 0) ? products : <div className="message">Cart is empty.</div>
+          (this.state.products.length !== 0) ?
+          products
+          :<div className="message">Cart is empty.</div>
         }
       </div>
     );

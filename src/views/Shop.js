@@ -5,14 +5,24 @@ import Header from '../components/Header/Header'
 
 
 class Shop extends Component {
- 
+  constructor(props) {
+    super(props);
+
+    this.cartRef = React.createRef();
+    this.addToCart=this.addToCart.bind(this);
+  }
+
+  addToCart(product) {
+    this.cartRef.current.addProduct(product);
+    // console.log(product);
+  }
 
   render() {
     return (
       <div className="Shop">
         <Header />
-        <Cart />
-        <ProductList />
+        <Cart ref={this.cartRef}/>
+        <ProductList addToCart={this.addToCart}/>
        
       </div>
     );

@@ -57,6 +57,7 @@ class ProductList extends Component {
           name={product.name}
           imageUrl={product.imageUrl}
           price={product.prices['PLN']}
+          addToCart={this.props.addToCart}
         />
       </li>
     );
