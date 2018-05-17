@@ -3,7 +3,9 @@
 @import '../../utilities/_animations.sass'
 
 .Product
+  text-align: center
   .card-wrapper
+    padding-bottom: 30px
     height: 100%
     box-shadow: 0 2px 4px 0 $shadow-dark
     border-radius: 4px
@@ -24,7 +26,6 @@
       min-height: 30px
       padding: 20px 10px 5px 10px
     .info
-      padding-top: 20px
       flex-grow: 1
       transition: $short-frame
       display: flex
@@ -32,22 +33,14 @@
       justify-content: space-between
       img
         align-self: center
-        // margin-top: 30px
-        // max-width: 200px
         max-height: 150px
-      h1
-        font-weight: 700
-        // color: $setting
-        font-size: 1.2em
-      h2
-        // flex: 1
-        font-weight: 300
-        color: $gray
-        font-size: 1em
+    .product-price
+      margin-top: 20px
+      color: $gray-dark
   .product-button
     height: 30px
     padding: 0 10px
-    margin-top: 10px
+    margin: 10px auto
     color: $white
     background-color: $balloon-red
     font-weight: 400
@@ -57,6 +50,7 @@
     transition: $short-frame
     border: 0 solid $balloon-red-light
     outline: none
+    opacity: 0
     &:hover
       transform: translate(-2px, -2px)
       box-shadow: 2px 2px 0 0 $balloon-red-light

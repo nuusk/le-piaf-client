@@ -30,12 +30,11 @@ class Product extends Component {
           <div className="tab">{this.props.name}</div>
           <div className="info">
             <img src={this.props.imageUrl} alt='' onLoad={this.appear}/>
-            <h2>{this.props.price}</h2>
           </div>
+          <div className="product-price">19.90 PLN</div>
         </div>
-        <span>
         <button className="product-button" onClick={this.handleAddToCart}>ADD TO CART</button>
-        </span>
+        
       </div>
     );
   }

@@ -30,6 +30,12 @@
     opacity: 0;
     transform: rotateY(-90deg) translateY(60px) scale(0.6); } }
 
+@keyframes appear-fade {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 .Cart {
   perspective: 3000px;
   width: 80%;
