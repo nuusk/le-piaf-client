@@ -37,7 +37,7 @@ class Cart extends Component {
     }
   }
 
-  removeProduct(e, productId) {
+  removeProduct(productId) {
     let removedProductIndex;;
     this.state.products.some((product, index)=>{
       if (product._id === productId) {
@@ -73,7 +73,15 @@ class Cart extends Component {
         <img src={product.imageUrl} alt='' />
         <div className="product-name">{product.name}</div>
         <div className="product-price">{this.getPrice(product)}</div>
-        <div className="product-amount">{product.quantity} </div>
+        <div className="product-amount">
+          <button>
+            <span className="amount-minus" onClick={()=>{this.addProduct(product)}} />
+          </button>
+          <span>{product.quantity}</span>
+          <button>
+            <span className="amount-plus" onClick={()=>{this.removeProduct(index)}} />
+          </button>
+        </div>
         <div className="product-size">{product.size}</div>
       </li>
     );

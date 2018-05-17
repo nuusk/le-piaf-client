@@ -11,6 +11,7 @@
   @media screen and (max-width: 700px)
     max-width: 95%
   border-radius: 1px
+  padding-bottom: 10px
   .cart-products
     perspective: 3000px
     display: flex
@@ -34,13 +35,58 @@
   
     .cart-product
       flex: 1 1
+      text-align: center
+      max-width: 300px
       .product-name
         font-weight: 700
         color: $balloon-red
+        margin: 5px
       .product-price
         font-weight: 300
         color: $gray-dark
-
+        margin: 5px
+      .product-amount
+        display: flex
+        justify-items: center
+        text-align: center
+        justify-content: center
+        margin: 5px
+        button
+          outline: none
+          border: 1px solid $balloon-red
+          border-radius: 4px
+          display: flex
+          flex-direction: column
+          justify-content: center
+          margin: 0 10px
+          background-color: rgba(0,0,0,0)
+          cursor: pointer
+          &:hover
+            background-color: $balloon-red
+            .amount-plus, .amount-minus
+              background-color: $white
+              &:after
+                background-color: $white
+        .amount-plus
+          transition: $short-frame
+          display: inline-block
+          height: 2px
+          width: 10px
+          background-color: $balloon-red
+          &:after
+            content: ''
+            display: inline-block
+            height: 2px
+            width: 10px
+            background-color: $balloon-red
+            position: absolute
+            transform: translateX(-5px) rotate(-90deg) 
+        .amount-minus
+          transition: $short-frame
+          display: inline-block
+          height: 2px
+          width: 10px
+          background-color: $balloon-red
       img
         max-height: 80px
   

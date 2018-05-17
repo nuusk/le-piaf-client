@@ -26,8 +26,14 @@ class Shop extends Component {
       <div className="Shop">
         <Header />
         <main>
-          <Cart ref={this.cartRef} currency={this.state.currency}/>
-          <ProductList addToCart={this.addToCart} currency={this.state.currency}/>
+          <Cart 
+            ref={this.cartRef} 
+            currency={this.state.currency}
+          />
+          <ProductList 
+            addToCart={this.addToCart} 
+            currency={this.state.currency}
+          />
         </main>
       </div>
     );

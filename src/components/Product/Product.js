@@ -13,7 +13,6 @@ class Product extends Component {
     this.handleAddToCart=this.handleAddToCart.bind(this)
   }
 
-
   handleClick() {
     // pass the index of the Product in the global array (of Products)
     this.props.handleClick(this.props.index);

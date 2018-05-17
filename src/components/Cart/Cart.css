@@ -63,7 +63,8 @@
 .Cart {
   width: 80%;
   margin: 0 auto;
-  border-radius: 1px; }
+  border-radius: 1px;
+  padding-bottom: 10px; }
 
 @media screen and (max-width: 1800px) {
   .Cart {
@@ -96,15 +97,69 @@
   font-weight: 700; }
 
 .Cart .cart-products .cart-product {
-  flex: 1 1; }
+  flex: 1 1;
+  text-align: center;
+  max-width: 300px; }
 
 .Cart .cart-products .cart-product .product-name {
   font-weight: 700;
-  color: #e24d86; }
+  color: #e24d86;
+  margin: 5px; }
 
 .Cart .cart-products .cart-product .product-price {
   font-weight: 300;
-  color: #545454; }
+  color: #545454;
+  margin: 5px; }
+
+.Cart .cart-products .cart-product .product-amount {
+  display: flex;
+  justify-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 5px; }
+
+.Cart .cart-products .cart-product .product-amount button {
+  outline: none;
+  border: 1px solid #e24d86;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 10px;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer; }
+
+.Cart .cart-products .cart-product .product-amount button:hover {
+  background-color: #e24d86; }
+
+.Cart .cart-products .cart-product .product-amount button:hover .amount-plus, .Cart .cart-products .cart-product .product-amount button:hover .amount-minus {
+  background-color: #f9fafc; }
+
+.Cart .cart-products .cart-product .product-amount button:hover .amount-plus:after, .Cart .cart-products .cart-product .product-amount button:hover .amount-minus:after {
+  background-color: #f9fafc; }
+
+.Cart .cart-products .cart-product .product-amount .amount-plus {
+  transition: 0.3s;
+  display: inline-block;
+  height: 2px;
+  width: 10px;
+  background-color: #e24d86; }
+
+.Cart .cart-products .cart-product .product-amount .amount-plus:after {
+  content: '';
+  display: inline-block;
+  height: 2px;
+  width: 10px;
+  background-color: #e24d86;
+  position: absolute;
+  transform: translateX(-5px) rotate(-90deg); }
+
+.Cart .cart-products .cart-product .product-amount .amount-minus {
+  transition: 0.3s;
+  display: inline-block;
+  height: 2px;
+  width: 10px;
+  background-color: #e24d86; }
 
 .Cart .cart-products .cart-product img {
   max-height: 80px; }
