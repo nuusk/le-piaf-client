@@ -24,15 +24,15 @@ class Product extends Component {
 
   render() {
     return (
-      <div className="Product" onClick={this.handleClick}>
-        <div className="card-wrapper">
+      <div className="Product">
+        <div className="card-wrapper" onClick={this.handleClick}>
           <div className="tab">{this.props.name}</div>
           <div className="info">
             <img src={this.props.imageUrl} alt='' onLoad={this.appear}/>
             <h2>{this.props.price}</h2>
           </div>
-          <button onClick={this.handleAddToCart}> add to cart </button>
         </div>
+        <button onClick={this.handleAddToCart}> add to cart </button>
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Cart.css';
 
 class Cart extends Component {
   constructor(props) {
@@ -24,15 +25,34 @@ class Cart extends Component {
       currency: 'PLN',
       totalCount: 0
     };
+
+    this.getPrice=this.getPrice.bind(this);
   }
 
   addProduct(newProduct) {
-    this.setState(prevState => ({
-      products: [...prevState.products, newProduct],
-      totalCount: prevState.totalCount + 1
-    }));
+    let alreadyExists = false;
+    let alreadyExistingIndex = null;
+    this.state.products.some((product, index) => {
+      if (product._id === newProduct._id) {
+        alreadyExists = true;
+        alreadyExistingIndex = index;
+        return true;
+      }
+    })
+    if (alreadyExists) {
+      console.log(alreadyExistingIndex);
+      let newState = this.state.products;
+      newState[alreadyExistingIndex].quantity++;
+      this.setState({ products: newState });
+    } else {
+      newProduct.quantity = 1;
+      this.setState(prevState => ({
+        products: [...prevState.products, newProduct],
+        totalCount: prevState.totalCount + 1
+      }));
+    }
     // console.log(e);
-    console.log(newProduct);
+    // console.log(newProduct);
   }
 
   removeProduct(e, productId) {
@@ -53,11 +73,25 @@ class Cart extends Component {
     }
   }
 
+  getPrice(product) {
+    let amount;
+    product.prices.some(price => {
+      if (price.currency === this.state.currency) {
+        amount = price.amount.toFixed(2);
+        return true;
+      }
+      return false;
+    });
+    return `${amount} ${this.state.currency}`;
+  }
+
   render() {
-    const products = this.state.products.map(product => 
-      <li key={product._id}>
+    const products = this.state.products.map((product, index) => 
+      <li className="cart-product" key={index}>
+        <img src={product.imageUrl} alt='' />
         <div className="product-name">{product.name}</div>
-        <div className="product-price">{product.price}</div>
+        <div className="product-price">{this.getPrice(product)}</div>
+        <div className="product-amount">{product.quantity} </div>
       </li>
     );
     return (

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Cart from '../components/Cart/Cart';
-import ProductList from '../components/ProductList/ProductList';
-import Header from '../components/Header/Header'
-
+import Cart from '../../components/Cart/Cart';
+import ProductList from '../../components/ProductList/ProductList';
+import Header from '../../components/Header/Header'
+import './Shop.css'
 
 class Shop extends Component {
   constructor(props) {
@@ -21,9 +21,10 @@ class Shop extends Component {
     return (
       <div className="Shop">
         <Header />
-        <Cart ref={this.cartRef}/>
-        <ProductList addToCart={this.addToCart}/>
-       
+        <main>
+          <Cart ref={this.cartRef}/>
+          <ProductList addToCart={this.addToCart}/>
+        </main>
       </div>
     );
   }
