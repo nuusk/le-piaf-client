@@ -5,21 +5,21 @@ class Cart extends Component {
     super(props);
     this.state = {
       products: [
-        {
-          id: 1,
-          name: 'bluza',
-          price: '10'
-        },
-        {
-          id: 2,
-          name: 'sweter',
-          price: '30'
-        },
-        {
-          id: 3,
-          name: 'spodnie',
-          price: '4'
-        }
+        // {
+        //   id: 1,
+        //   name: 'bluza',
+        //   price: '10'
+        // },
+        // {
+        //   id: 2,
+        //   name: 'sweter',
+        //   price: '30'
+        // },
+        // {
+        //   id: 3,
+        //   name: 'spodnie',
+        //   price: '4'
+        // }
       ],
       currency: 'PLN',
       totalCount: 0

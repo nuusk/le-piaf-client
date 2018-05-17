@@ -8,48 +8,7 @@ class ProductList extends Component {
     super(props);
 
     this.state = {
-      products: [
-        {
-          name: 'Christmas Bow Tie',
-          imageUrl: 'http://hoth.amu.edu.pl/~piopta/le-piaf/man-christmas-bow-tie.png',
-          category: 'ties',
-          tags: ['christmas', 'red'],
-          prices: {
-            PLN: 29.90,
-            EUR: 6.90
-          }
-        },
-        {
-          name: 'Unisex Red Cap',
-          imageUrl: 'http://hoth.amu.edu.pl/~piopta/le-piaf/unisex-red-cap.png',
-          category: 'hats',
-          tags: ['white', 'red', 'sport'],
-          prices: {
-            PLN: 39.90,
-            EUR: 8.90
-          }
-        },
-        {
-          name: 'Gray T-Shirt',
-          imageUrl: 'http://hoth.amu.edu.pl/~piopta/le-piaf/man-gray-tshirt.png',
-          category: 't-shirts',
-          tags: ['gray', 'casual'],
-          prices: {
-            PLN: 19.90,
-            EUR: 4.90
-          }
-        },
-        {
-          name: 'Black Purse',
-          imageUrl: 'http://hoth.amu.edu.pl/~piopta/le-piaf/woman-black-purse.png',
-          category: 'purses',
-          tags: ['black', 'elegant'],
-          prices: {
-            PLN: 79.90,
-            EUR: 12.90
-          }
-        }
-      ],
+      products: [],
       selectedProduct: null,
       modalOpened: false
     }
@@ -58,6 +17,18 @@ class ProductList extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
     
+  componentDidMount() {
+    fetch('http://localhost:5000/api/products/', {
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    }).then(blob => blob.json())
+      .then(data => {
+        this.setState({products: data})
+        console.log(data);
+      });
+  }
+
   closeModal() {
     this.setState({
       modalOpened: false
