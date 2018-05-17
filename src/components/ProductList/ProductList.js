@@ -16,6 +16,7 @@ class ProductList extends Component {
     this.closeModal = this.closeModal.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleAddToCart = this.handleAddToCart.bind(this);
+    this.getPrice = this.getPrice.bind(this);
   }
     
   componentDidMount() {
@@ -48,6 +49,18 @@ class ProductList extends Component {
     });
   }
 
+  getPrice(product) {
+    let amount;
+    product.prices.some(price => {
+      if (price.currency === this.props.currency) {
+        amount = price.amount.toFixed(2);
+        return true;
+      }
+      return false;
+    });
+    return `${amount} ${this.props.currency}`;
+  }
+
   handleAddToCart(productIndex, productSize) {
     this.props.addToCart(this.state.products[productIndex], productSize);
   }
@@ -55,11 +68,12 @@ class ProductList extends Component {
   render() {
     const products = this.state.products.map((product, index) => 
         <Product
+          key={index}
           index={index}
           handleClick={this.handleClick}
           name={product.name}
           imageUrl={product.imageUrl}
-          price={product.prices['PLN']}
+          price={this.getPrice(product)}
           addToCart={this.handleAddToCart}
         />
     );

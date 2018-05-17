@@ -31,7 +31,7 @@ class Product extends Component {
           <div className="info">
             <img src={this.props.imageUrl} alt='' onLoad={this.appear}/>
           </div>
-          <div className="product-price">19.90 PLN</div>
+          <div className="product-price">{this.props.price}</div>
         </div>
         <button className="product-button" onClick={this.handleAddToCart}>ADD TO CART</button>
         

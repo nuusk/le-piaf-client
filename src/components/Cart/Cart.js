@@ -5,24 +5,7 @@ class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: [
-        // {
-        //   id: 1,
-        //   name: 'bluza',
-        //   price: '10'
-        // },
-        // {
-        //   id: 2,
-        //   name: 'sweter',
-        //   price: '30'
-        // },
-        // {
-        //   id: 3,
-        //   name: 'spodnie',
-        //   price: '4'
-        // }
-      ],
-      currency: 'PLN',
+      products: [],
       totalCount: 0
     };
 
@@ -51,8 +34,6 @@ class Cart extends Component {
         totalCount: prevState.totalCount + 1
       }));
     }
-    // console.log(e);
-    // console.log(newProduct);
   }
 
   removeProduct(e, productId) {
@@ -62,7 +43,7 @@ class Cart extends Component {
         removedProductIndex = index;
         return true;
       }
-      return false; //?????
+      return false;
     });
     if (typeof productId !== 'undefined') {
       this.setState(prevState => {
@@ -76,13 +57,13 @@ class Cart extends Component {
   getPrice(product) {
     let amount;
     product.prices.some(price => {
-      if (price.currency === this.state.currency) {
+      if (price.currency === this.props.currency) {
         amount = price.amount.toFixed(2);
         return true;
       }
       return false;
     });
-    return `${amount} ${this.state.currency}`;
+    return `${amount} ${this.props.currency}`;
   }
 
   render() {

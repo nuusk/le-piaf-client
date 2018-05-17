@@ -10,6 +10,10 @@ class Shop extends Component {
 
     this.cartRef = React.createRef();
     this.addToCart=this.addToCart.bind(this);
+
+    this.state = {
+      currency: 'PLN'
+    }
   }
 
   addToCart(product, size) {
@@ -22,8 +26,8 @@ class Shop extends Component {
       <div className="Shop">
         <Header />
         <main>
-          <Cart ref={this.cartRef}/>
-          <ProductList addToCart={this.addToCart}/>
+          <Cart ref={this.cartRef} currency={this.state.currency}/>
+          <ProductList addToCart={this.addToCart} currency={this.state.currency}/>
         </main>
       </div>
     );
