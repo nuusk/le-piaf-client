@@ -11,6 +11,7 @@ class Cart extends Component {
     };
 
     this.getPrice=this.getPrice.bind(this);
+    this.totalAmount=this.totalAmount.bind(this);
   }
 
   addProduct(newProduct) {
@@ -63,6 +64,14 @@ class Cart extends Component {
     return `${amount} ${this.props.currency}`;
   }
 
+  totalAmount() {
+    let sum = 0;
+    this.state.products.forEach(product=>{
+      sum += product.quantity * Number(this.getPrice(product).split(' ')[0]);
+    });
+    return sum;
+  }
+
   render() {
     const products = this.state.products.map((product, index) => 
       <li className="cart-product" key={index}>
@@ -94,6 +103,7 @@ class Cart extends Component {
               :<div className="message">Cart is empty...</div>
             }
           </div>
+      <div className="total-amount">Total amount: {this.totalAmount().toFixed(2)} {this.props.currency}</div>
       </div>
     );
   }
