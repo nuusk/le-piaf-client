@@ -14,6 +14,17 @@ class Cart extends Component {
     this.totalAmount=this.totalAmount.bind(this);
   }
 
+  componentWillMount() { 
+    const cachedCart = localStorage.getItem('cart');
+    if (cachedCart) {
+      // console.log(cachedCart)
+      this.setState({
+        products: JSON.parse(cachedCart),
+        cartOpened: true
+      });
+    }
+  }
+
   addProduct(newProduct) {
     let alreadyExists = false;
     let alreadyExistingIndex = null;
@@ -28,14 +39,22 @@ class Cart extends Component {
       console.log(alreadyExistingIndex);
       let newState = this.state.products.slice();
       newState[alreadyExistingIndex].quantity++;
-      this.setState({ products: newState });
+      this.setState({ products: newState },()=>{
+        localStorage.setItem('cart', JSON.stringify(this.state.products));
+      });
     } else {
       newProduct.quantity = 1;
       this.setState(prevState => ({
         products: [...prevState.products, newProduct],
         totalCount: prevState.totalCount + 1
-      }));
+      }),()=>{
+        localStorage.setItem('cart', JSON.stringify(this.state.products));
+      });
     }
+  }
+
+  componentWillUnmount() {
+    console.log('asd');
   }
 
   removeProduct(productId) {
@@ -48,6 +67,8 @@ class Cart extends Component {
           newProductList.splice(productId, 1);
           return {products: newProductList};
         };
+      },()=>{
+        localStorage.setItem('cart', JSON.stringify(this.state.products));
       });
     }
   }
