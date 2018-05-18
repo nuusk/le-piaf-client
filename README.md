@@ -5,7 +5,7 @@ This is a client application for le piaf [no trademark] web clothing store.
 ## Getting Started
 
 First make sure that the server is running. You can clone the server from 
-https://github.com/pietersweter/le-piaf-client/le-piaf-server
+https://github.com/pietersweter/le-piaf-server
 Follow the instructions given in the server repository and come back here.
 
 ### Installing
