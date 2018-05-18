@@ -1,0 +1,62 @@
+@import '../../_utilities/_timers.sass'
+@import '../../_utilities/_palette.sass'
+  
+.Spinner
+  position: relative
+  display: inline-block
+  width: 80px
+  height: 80px
+  border-radius: 50%
+  left: 50%
+  transform: translate(-50%, -50%) scale(.8)
+  opacity: 0
+  animation: appear $short-frame forwards
+  margin-top: 100px
+  .inner-circle
+    width: 80px
+    height: 80px
+    background-color: $gray-light
+    position: absolute
+    transform: translate(-50%, -100%)
+    left: 50%
+    border-radius: 50%
+    animation: shrink $long-frame cubic-bezier(.42,.13,.34,.84) infinite
+
+  &:after, &:before
+    content: ''
+    display: block
+    width: 80px
+    height: 80px
+    border-radius: 50%
+  
+  &.spin-a:after
+    position: absolute
+    top: -4px
+    left: -4px
+    border: 4px solid transparent
+    border-top-color: $balloon-red
+    border-bottom-color: $balloon-red
+    animation: spin $long-frame cubic-bezier(.42,.13,.34,.84) infinite
+  
+@keyframes spin
+  0%
+    transform: rotate(0deg) scale(1)
+  50%
+    transform: rotate(20deg) scale(1.15)
+  100%
+    transform: rotate(360deg) scale(1)
+
+
+@keyframes shrink
+  0%
+    transform: translate(-50%, -100%) scale(1)
+  50%
+    transform: translate(-50%, -100%) scale(.9)
+  100%
+    transform: translate(-50%, -100%) scale(1)
+
+@keyframes appear
+  100%
+    opacity: 1
+    transform: translate(-50%, -50%) scale(1)
+  

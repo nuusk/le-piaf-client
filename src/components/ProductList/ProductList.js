@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './ProductList.css'
 import Product from '../Product/Product';
-import ProductModal from '../ProductModal/ProductModal'
+import ProductModal from '../ProductModal/ProductModal';
+import Spinner from '../Spinner/Spinner';
 
 class ProductList extends Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class ProductList extends Component {
     this.state = {
       products: [],
       selectedProduct: null,
-      modalOpened: false
+      modalOpened: false,
+      isDataFetched: false
     }
 
     this.closeModal = this.closeModal.bind(this);
@@ -26,7 +28,10 @@ class ProductList extends Component {
       }
     }).then(blob => blob.json())
       .then(data => {
-        this.setState({products: data})
+        this.setState({
+          products: data,
+          isDataFetched: true
+        })
       });
   }
 
@@ -95,8 +100,8 @@ class ProductList extends Component {
     return (
       <div className="ProductList">
         { 
-          (this.state.products.length !== 0) ?
-          products : <span>Shop is closed!</span>
+          (this.state.products.length === 0 || !this.state.isDataFetched) ?
+          <Spinner /> : products
         }
         <ProductModal 
           modalOpened={this.state.modalOpened}
