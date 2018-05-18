@@ -17,7 +17,6 @@ class Cart extends Component {
   componentWillMount() { 
     const cachedCart = localStorage.getItem('cart');
     if (cachedCart) {
-      // console.log(cachedCart)
       this.setState({
         products: JSON.parse(cachedCart),
         cartOpened: true
@@ -36,7 +35,6 @@ class Cart extends Component {
       }
     })
     if (alreadyExists) {
-      console.log(alreadyExistingIndex);
       let newState = this.state.products.slice();
       newState[alreadyExistingIndex].quantity++;
       this.setState({ products: newState },()=>{
@@ -51,10 +49,6 @@ class Cart extends Component {
         localStorage.setItem('cart', JSON.stringify(this.state.products));
       });
     }
-  }
-
-  componentWillUnmount() {
-    console.log('asd');
   }
 
   removeProduct(productId) {

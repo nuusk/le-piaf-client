@@ -18,7 +18,6 @@ class Shop extends Component {
 
   addToCart(product, size) {
     this.cartRef.current.addProduct(product, size);
-    // console.log(product);
   }
 
   render() {
