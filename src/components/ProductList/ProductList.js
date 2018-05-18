@@ -88,6 +88,8 @@ class ProductList extends Component {
           closeModal={this.closeModal}
           products={this.state.products}
           selectedProduct={this.state.products[this.state.selectedProduct]}
+          getPrice={this.getPrice}
+          handleAddToCart={this.handleAddToCart}
         />
       </div>
     );

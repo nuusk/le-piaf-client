@@ -112,10 +112,22 @@
 
 .ProductModal .product-details .product-image {
   align-self: center;
-  max-height: 300px; }
+  max-height: 300px;
+  max-width: 300px; }
 
 .ProductModal .product-details .product-info {
-  padding-left: 40px; }
+  padding: 40px; }
 
 .ProductModal .product-details .product-info .product-name {
   font-size: 1.5em; }
+
+.ProductModal .product-details .product-info .underscore {
+  margin: 20px 0 10px 0;
+  height: 4px;
+  width: 40px;
+  background-color: #e24d86; }
+
+.ProductModal .product-details .product-info .product-price {
+  margin-top: 20px;
+  font-size: 2em;
+  color: #e24d86; }
