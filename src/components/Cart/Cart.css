@@ -61,18 +61,8 @@
     margin-top: -100px; } }
 
 .Cart {
-  width: 80%;
-  margin: 0 auto;
   border-radius: 1px;
   padding-bottom: 10px; }
-
-@media screen and (max-width: 1800px) {
-  .Cart {
-    max-width: 90%; } }
-
-@media screen and (max-width: 700px) {
-  .Cart {
-    max-width: 95%; } }
 
 .Cart .cart-products {
   perspective: 3000px;

@@ -44,11 +44,11 @@ class Shop extends Component {
       <div className="Shop">
         <header>
           <Header />
+        </header>
+        <main>
           <Sorter 
             handleSortingOptionChange={this.handleSortingOptionChange}
           />
-        </header>
-        <main>
           <Cart 
             ref={this.cartRef} 
             currency={this.state.currency}
