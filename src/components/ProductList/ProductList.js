@@ -27,7 +27,6 @@ class ProductList extends Component {
     }).then(blob => blob.json())
       .then(data => {
         this.setState({products: data})
-        // console.log(data[0]._id);
       });
   }
 
@@ -66,7 +65,23 @@ class ProductList extends Component {
   }
 
   render() {
-    const products = this.state.products.map((product, index) => 
+    const products = this.state.products
+      .sort((a,b)=>{
+        let aComparedValue, bComparedValue;
+        if (this.props.sortingCategory === 'price') {
+          aComparedValue = this.getPrice(a);
+          bComparedValue = this.getPrice(b);
+        } else if (this.props.sortingCategory === 'name') {
+          aComparedValue = a.name;
+          bComparedValue = b.name;
+        }
+        if (aComparedValue < bComparedValue) {
+          return this.props.sortingDirection === 'ascending' ? -1:1;
+        } else {
+          return this.props.sortingDirection === 'ascending' ? 1:-1;
+        }
+      })
+      .map((product, index) => 
         <Product
           key={index}
           index={index}

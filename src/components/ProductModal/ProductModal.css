@@ -131,3 +131,27 @@
   margin-top: 20px;
   font-size: 2em;
   color: #e24d86; }
+
+.ProductModal .product-details .product-info .product-button {
+  display: block;
+  height: 40px;
+  padding: 0 10px;
+  margin: 40px auto 0 auto;
+  color: #f9fafc;
+  font-size: 1.2em;
+  background-color: #e24d86;
+  font-weight: 400;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 0 solid #fc74a8;
+  outline: none; }
+
+.ProductModal .product-details .product-info .product-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0 0 #fc74a8; }
+
+.ProductModal .product-details .product-info .product-button:active {
+  transform: translate(1px, 1px);
+  box-shadow: -1px -1px 0 0 #545454; }
